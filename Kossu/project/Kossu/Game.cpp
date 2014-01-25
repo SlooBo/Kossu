@@ -13,8 +13,8 @@ Game::~Game(void)
 
 void Game::rotate(float angle)
 {
-	x = -cos((90 + angle) * PI / 180) * 0.1f;
-	y = -sin((90 + angle) * PI / 180) * 0.1f;
+	x = -cos((90 + angle) * PI / 180); // * 0.1f
+	y = -sin((90 + angle) * PI / 180); // * 0.1f
 
 }
 
@@ -25,9 +25,9 @@ int Game::PlayGame()
 
 	//PLAYER
 	sf::Texture pirate_text;
-	if(!pirate_text.loadFromFile("pirate.png"))
+	if(!pirate_text.loadFromFile("ship_small.png"))
 	{
-		std::cout << "Couldn't load file: pirate.png" << std::endl;
+		std::cout << "Couldn't load file: ship_small.png" << std::endl;
 	}
 
 	//BULLET
@@ -49,9 +49,10 @@ int Game::PlayGame()
 
 	//Player
 	sf::Sprite player_sprite;
-	player_sprite.setOrigin(32,32);
+	player_sprite.setOrigin(128,128);
 	player_sprite.setTexture(pirate_text);
 	sf::FloatRect player_boundingBox = player_sprite.getGlobalBounds();
+	player_sprite.setScale(0.3f,0.3f);
 
 	//Bullet
 	sf::Sprite bullet_sprite;
@@ -70,8 +71,8 @@ int Game::PlayGame()
 	
 	////////////////////////////Window//////////////////////////////
 
-	sf::RenderWindow window_game(sf::VideoMode(800,800),"GAME");
-	sf::View view1(sf::FloatRect(0,0,800,800));
+	sf::RenderWindow window_game(sf::VideoMode(800,600),"GAME");
+	sf::View view1(sf::FloatRect(0,0,800,600));
 	
 
 	////////////////////////////shit//////////////////////////////
@@ -89,10 +90,30 @@ int Game::PlayGame()
 		//deltatime
 		sf::Time deltatime = deltaclock.restart();
 			
-		//
+		//		
 		player_sprite.move(velocity);
-		view1.move(velocity);
 
+		//Camera bounds
+		if(player_sprite.getPosition().x <= background_sprite.getLocalBounds().width - (window_game.getSize().x / 2)
+			&& player_sprite.getPosition().x >= background_sprite.getLocalBounds().width - background_sprite.getLocalBounds().width + (window_game.getSize().x / 2))
+		{			
+			view1.move(velocity.x, 0);
+		}
+		if(player_sprite.getPosition().y <= background_sprite.getLocalBounds().height - (window_game.getSize().y / 2)
+			&& player_sprite.getPosition().y >= background_sprite.getLocalBounds().height - background_sprite.getLocalBounds().height + (window_game.getSize().y / 2))
+		{		
+			view1.move(0,velocity.y);
+		}
+
+		//player bounds
+		if(player_sprite.getPosition().x >= background_sprite.getLocalBounds().width
+			|| player_sprite.getPosition().x <= background_sprite.getLocalBounds().width - background_sprite.getLocalBounds().width
+			|| player_sprite.getPosition().y >= background_sprite.getLocalBounds().height
+			|| player_sprite.getPosition().y <= background_sprite.getLocalBounds().height - background_sprite.getLocalBounds().height)
+		{
+			velocity.x = 0;
+			velocity.y = 0;
+		}
 
 		//Gravity
 		if(velocity.y < maxY)
@@ -111,7 +132,6 @@ int Game::PlayGame()
 
 				velocity.x += x * 0.001f;
 				velocity.y += y * 0.001f;
-
 			}
 		}
 
@@ -132,7 +152,7 @@ int Game::PlayGame()
 
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 		{
-
+			
 		}
 
 

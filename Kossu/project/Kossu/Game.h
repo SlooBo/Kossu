@@ -1,6 +1,7 @@
 #pragma once
 
 #include "input.h"
+#include "Camera.h"
 
 #define PI (3.141592653589793)
 
@@ -18,5 +19,8 @@ public:
 	
 	void rotate(float angle);
 	int PlayGame();
+
+private:
 	float x, y, a;
+
 };

@@ -4,7 +4,9 @@
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 
-class input
+#include "Game.h"
+
+class input : public Game
 {
 public:
 	input(void);
