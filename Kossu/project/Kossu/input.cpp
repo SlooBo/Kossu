@@ -10,7 +10,7 @@ input::~input(void)
 {
 }
 
-void input::move()
+void input::Move()
 {
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{

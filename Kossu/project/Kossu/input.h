@@ -10,6 +10,6 @@ public:
 	input(void);
 	~input(void);
 
-	void move();
+	void Move();
 };
 

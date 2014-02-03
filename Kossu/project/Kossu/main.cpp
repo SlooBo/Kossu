@@ -6,29 +6,45 @@
 #include "Mainmenu.h"
 #include "Game.h"
 
+enum states
+{
+	MENU_STATE = 1,
+	EXIT_STATE = 2,
+	GAME_STATE = 3,
+	OPTIONS_STATE = 4
+};
+
 int main()
 {	
 	Mainmenu menucall;
 	Game gameCall;
 	
-	int state = 1;
-	int *statepoint;
-	statepoint = &state;
+	int state = GAME_STATE;
 
-	while(1)
+	while(true)
 	{
+		std::cout << state << std::endl;
+
+		if(state == MENU_STATE)
+		{
 		std::cout << "Opening Main Menu" << std::endl;
 		menucall.DrawMenu(state);
-		
-		if(state == 2)
-		{
-			std::cout << "perkele" << state << std::endl;
 		}
 
-		if(state == 3)
+		if(state == EXIT_STATE)
 		{
-			std::cout << "asd"<< state << std::endl;
+			std::cout << "Exit" << state << std::endl;
+			break;
+		}
+
+		if(state == GAME_STATE)
+		{
+			std::cout << "Game starting" << std::endl;
 			gameCall.PlayGame();
+		}
+		if(state == OPTIONS_STATE)
+		{
+		
 		}
 	}
 	system("pause");

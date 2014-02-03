@@ -81,16 +81,14 @@ int Mainmenu::DrawMenu(int state)
 			{
 				std::cout << "Exit Game" << std::endl;	
 				state = 2;
-				
-				std::cout << state << std::endl;
 				return state;
-				std::cout << state << std::endl;
 				window_menu.close();
 			}
 			
 			if(event.type == sf::Event::Closed)
 			{
 				std::cout << "Closing Window" << std::endl;
+				return state;
 				window_menu.close();
 			}
 		}
