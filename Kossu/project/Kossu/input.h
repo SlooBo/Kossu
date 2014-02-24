@@ -1,17 +1,27 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
+#include <SFML\System.hpp>
+#include <SFML\Window.hpp>
 
-#include "Game.h"
+#include "GameObject.h"
+#include "Player.h"
 
-class input : public Game
+#include <iostream>
+
+#define PI (3.141592653589793)
+
+class Input
 {
 public:
-	input(void);
-	~input(void);
+	static sf::Vector2f direction();
+	static float rotation();
+	static bool keyboard_Space();
+	static bool keyboard_W();
+	static bool keyboard_A();
+	static bool keyboard_D();
 
-	void Move();
+private:
+	Input(void);
+	~Input(void);
 };
 

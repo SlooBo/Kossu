@@ -40,7 +40,7 @@ int main()
 		if(state == GAME_STATE)
 		{
 			std::cout << "Game starting" << std::endl;
-			gameCall.PlayGame();
+			Game::Game();
 		}
 		if(state == OPTIONS_STATE)
 		{

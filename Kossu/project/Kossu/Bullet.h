@@ -1,15 +1,18 @@
 #pragma once
 
-class Bullet
+#include "gameobject.h"
+
+#include <list>
+
+class Bullet :	public GameObject
 {
 public:
 	Bullet(void);
 	~Bullet(void);
 
-	void BulletMove();
-	void BulletShoot();
+	void getVel(sf::Vector2f pos, sf::Vector2f vel);
+	void Update(const sf::Time& elapsedTime);
 
 private:
-	int x,y;
+	std::list<Bullet> bullets;
 };
-

@@ -84,20 +84,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="input.cpp" />
+    <ClCompile Include="GameHandler.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mainmenu.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Render.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
-    <ClInclude Include="Camera.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="input.h" />
+    <ClInclude Include="GameHandler.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="Mainmenu.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Render.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="old.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

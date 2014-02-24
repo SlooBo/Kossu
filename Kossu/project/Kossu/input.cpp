@@ -1,46 +1,29 @@
-#include "input.h"
+#include "Input.h"
 
-
-input::input(void)
+Input::Input(void)
 {
 }
 
-
-input::~input(void)
+Input::~Input(void)
 {
 }
 
-void input::Move()
-{	
-if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-	{
-		if(velocity.y > minY)
-		{
-			float angle;
-			angle = player_sprite.getRotation();				
-			Game::rotate(angle);
+bool Input::keyboard_A()
+{
+	return sf::Keyboard::isKeyPressed(sf::Keyboard::A);
+}
 
-			velocity.x += x * 0.001f;
-			velocity.y += y * 0.001f;
-		}
-	}
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-	{
-		player_sprite.rotate(-0.1f);
-	}
+bool Input::keyboard_D()
+{
+	return sf::Keyboard::isKeyPressed(sf::Keyboard::D);	
+}
 
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-	{				
-	
-	}
+bool Input::keyboard_W()
+{
+	return sf::Keyboard::isKeyPressed(sf::Keyboard::W);	
+}
 
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-	{
-		player_sprite.rotate(0.1f);
-	}
-
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-	{
-			
-	}
+bool Input::keyboard_Space()
+{
+	return sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
 }
