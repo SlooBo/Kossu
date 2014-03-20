@@ -26,6 +26,7 @@ public:
 	
 	bool isAlive();
 
+	Bullet bullet;
 private:
 	sf::Vector2f velocity;
 	sf::Clock bulletTimer;
@@ -33,7 +34,6 @@ private:
 	float rangle;
 	float x, y;	
 
-	Bullet bullet;
 
 	void updatePosition(const sf::Time& elapsedTime);
 };

@@ -75,6 +75,7 @@ void Player::bulletShoot()
 	sf::Vector2f bulletPos(position.x, position.y);
 	sf::Vector2f bulletVel(x,y);
 	bullet.getVel(bulletPos,bulletVel);
+	std::cout << "Shot bullet from " << bulletPos.x << " " << bulletPos.y <<std::endl;
 }
 
 void Player::Draw(sf::RenderWindow& window)
@@ -87,6 +88,8 @@ void Player::Draw(sf::RenderWindow& window)
 void Player::Update(const sf::Time& elapsedTime)
 {
 	updatePosition(elapsedTime);
+
+	std::cout << "Position" << bullet.Position().x << " " << bullet.Position().x << std::endl;
 }
 
 void Player::updatePosition(const sf::Time& elapsedTime)

@@ -28,6 +28,7 @@ private:
 	sf::RenderWindow& window;
 	sf::Texture texture;
 	sf::FloatRect bounds;
+	sf::Texture bullet_text;
 
 	Player player;
 	Bullet bullet;

@@ -6,6 +6,7 @@ GameHandler::GameHandler(sf::RenderWindow& window)	: bounds(window.getViewport(w
 	initPlayer();
 	Render();
 	texture.loadFromFile("assets/ship_small.png");
+	bullet_text.loadFromFile("assets/bullet.png");
 }
 
 
@@ -26,7 +27,8 @@ void GameHandler::Draw()
 	window.clear();
 	
 	player.Draw(window);
-
+	player.bullet.Draw(window);
+	
 	window.display();
 }
 
@@ -57,6 +59,8 @@ void GameHandler::initPlayer()
 {
 	player.setTexture(texture);
 
+	player.bullet.setTexture(bullet_text);
+
 	const sf::Vector2f startPosition(100,100);
 
 	player.setPosition(startPosition);
@@ -70,7 +74,7 @@ void GameHandler::updatePlayer(const sf::Time& elapsedTime)
 
 void GameHandler::updateBullets(const sf::Time& elapsedTime)
 {
-	bullet.Update(elapsedTime);
+	player.bullet.Update(elapsedTime);
 }
 
 void GameHandler::Render()
