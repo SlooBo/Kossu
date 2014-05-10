@@ -12,5 +12,7 @@ public:
 	~Mainmenu(void);
 
 	int DrawMenu(int state);
+
+private:
 };
 

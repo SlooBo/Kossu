@@ -25,11 +25,13 @@ public:
 	void SetTexture(sf::Texture& value);
 	void setDirection(const sf::Vector2f value);
 	void setPosition(const sf::Vector2f value);
+	void setRotation(const int value);
 
 
 protected:
 	sf::Sprite sprite;
 	sf::Vector2f position;
 	sf::Vector2f direction;
+	int rotation;
 };
 

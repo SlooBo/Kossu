@@ -17,9 +17,8 @@ enum states
 int main()
 {	
 	Mainmenu menucall;
-	Game gameCall;
 	
-	int state = GAME_STATE;
+	int state = MENU_STATE;
 
 	while(true)
 	{
@@ -27,8 +26,8 @@ int main()
 
 		if(state == MENU_STATE)
 		{
-		std::cout << "Opening Main Menu" << std::endl;
-		menucall.DrawMenu(state);
+			std::cout << "Opening Main Menu" << std::endl;
+			state = menucall.DrawMenu(state);
 		}
 
 		if(state == EXIT_STATE)
@@ -42,6 +41,7 @@ int main()
 			std::cout << "Game starting" << std::endl;
 			Game::Game();
 		}
+
 		if(state == OPTIONS_STATE)
 		{
 		
@@ -49,4 +49,10 @@ int main()
 	}
 	system("pause");
 	return EXIT_SUCCESS;
+}
+
+void startGame()
+{
+	std::cout << "Game starting" << std::endl;
+	Game::Game();
 }

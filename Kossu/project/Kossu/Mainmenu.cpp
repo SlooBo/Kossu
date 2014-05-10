@@ -15,14 +15,14 @@ int Mainmenu::DrawMenu(int state)
 	//Tekstuurit	
 	sf::Texture pirate_text;
 
-	if(!pirate_text.loadFromFile("pirate.png"))
+	if(!pirate_text.loadFromFile("assets/pirate.png"))
 	{
 			std::cout << "Couldn't load file: pirate.png" << std::endl;
 	}
 
 	sf::Texture backGround_text;
 
-	if(!backGround_text.loadFromFile("background.png"))
+	if(!backGround_text.loadFromFile("assets/background.png"))
 	{
 		std::cout << "Couldn't load file: background.png" << std::endl;
 	}	
@@ -69,7 +69,7 @@ int Mainmenu::DrawMenu(int state)
 				&& localPosition.y > menuItem_sprite.getPosition().y - menuItem_boundingBox.height)
 			{
 				std::cout << "Start game" << std::endl;			
-				state = 3;						
+				state = 3;		
 				window_menu.close();
 			}
 

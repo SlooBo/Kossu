@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "Render.h"
 #include "Bullet.h"
+#include "Level.h"
 
 class GameHandler
 {
@@ -29,8 +30,11 @@ private:
 	sf::Texture texture;
 	sf::FloatRect bounds;
 	sf::Texture bullet_text;
+	sf::Texture background_text;
+	sf::Texture bar_text;
 
 	Player player;
 	Bullet bullet;
+	Level level;
 };
 

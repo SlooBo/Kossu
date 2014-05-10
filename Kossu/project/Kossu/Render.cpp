@@ -8,9 +8,6 @@ Render::Render(void)
 	{
 		std::cout << "Couldn't load file: ship_small.png" << std::endl;
 	}
-		
-	sf::Texture* texture1;
-	texture1 = &ship_text;
 
 	//BULLET
 	if(!bullet_text.loadFromFile("assets/bullet.png"))

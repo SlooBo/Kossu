@@ -31,6 +31,10 @@ void GameObject::setPosition(const sf::Vector2f value)
 	position = value;
 }
 
+void GameObject::setRotation(const int value)
+{
+	rotation = value;
+}
 
 void GameObject::Update(const sf::Time& elapsedTime)
 {

@@ -23,17 +23,18 @@ public:
 	void rotateLeft();
 	void rotateRight();
 	void forward();
-	
-	bool isAlive();
+	void takeDamage(int value);
+	void Camera(sf::View& view1);	
+	bool isAlive;
 
 	Bullet bullet;
+
 private:
 	sf::Vector2f velocity;
 	sf::Clock bulletTimer;
 	int health;
 	float rangle;
 	float x, y;	
-
 
 	void updatePosition(const sf::Time& elapsedTime);
 };

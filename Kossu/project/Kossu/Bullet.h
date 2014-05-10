@@ -7,13 +7,17 @@
 class Bullet :	public GameObject
 {
 public:
-	Bullet(void);
+	Bullet(sf::Vector2f position, int angle);
+	Bullet();
 	~Bullet(void);
 
-	void getVel(sf::Vector2f pos, sf::Vector2f vel);
+	void getVel(sf::Vector2f pos, int rangle);
 	void Update(const sf::Time& elapsedTime);
 	void setTexture(sf::Texture& bullet_text);
 	void Draw(sf::RenderWindow& window);
+	
+	std::vector<Bullet> bullets;
+
 private:
-	std::list<Bullet> bullets;
+
 };
