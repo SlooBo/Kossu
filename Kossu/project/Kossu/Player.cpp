@@ -62,7 +62,7 @@ void Player::forward()
 	velocity.x += x;
 	velocity.y += y;
 }
-
+/*
 void Player::shoot()
 {
 	if(bulletTimer.getElapsedTime().asSeconds() > bulletCD)
@@ -75,13 +75,10 @@ void Player::shoot()
 void Player::bulletShoot()
 {
 	sf::Vector2f bulletPos(position.x, position.y);
-	bullet.getVel(bulletPos,rangle);
+	//bullet.getVel(bulletPos,rangle);
 	std::cout << "Shot bullet from " << bulletPos.x << " " << bulletPos.y <<std::endl;
-	
-	bullet.bullets.push_back(Bullet(bulletPos,rangle));
-
 }	
-
+*/
 void Player::takeDamage(int value)
 {
 	health -= value;

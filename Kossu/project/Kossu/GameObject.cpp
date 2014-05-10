@@ -20,7 +20,6 @@ const sf::Vector2f& GameObject::Position() const
 	return position;
 }
 
-
 void GameObject::setDirection(const sf::Vector2f value)
 {
 	direction = value;

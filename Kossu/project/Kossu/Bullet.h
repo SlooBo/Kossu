@@ -15,8 +15,6 @@ public:
 	void Update(const sf::Time& elapsedTime);
 	void setTexture(sf::Texture& bullet_text);
 	void Draw(sf::RenderWindow& window);
-	
-	std::vector<Bullet> bullets;
 
 private:
 

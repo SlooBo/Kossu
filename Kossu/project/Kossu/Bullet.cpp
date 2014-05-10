@@ -14,7 +14,7 @@ Bullet::Bullet(){}
 
 Bullet::~Bullet(void)
 {
-	
+
 }
 
 void Bullet::setTexture(sf::Texture& bullet_text)
@@ -25,7 +25,7 @@ void Bullet::setTexture(sf::Texture& bullet_text)
 	sprite.setOrigin(texture_origin);
 	sprite.setScale(0.5f,0.5f);
 }
-
+/*
 void Bullet::getVel(sf::Vector2f pos, int rangle)
 {	
 	position.x = pos.x;
@@ -40,7 +40,7 @@ void Bullet::getVel(sf::Vector2f pos, int rangle)
 	Update(elapsedTime);
 
 }
-
+*/
 void Bullet::Update(const sf::Time& elapsedTime)
 {
 	position.x += direction.x * bullet_speed * elapsedTime.asSeconds();

@@ -10,7 +10,7 @@
 #include "Bullet.h"
 #include "Level.h"
 
-class GameHandler
+class GameHandler : public GameObject
 {
 public:
 	GameHandler(sf::RenderWindow& window);
@@ -19,6 +19,8 @@ public:
 	void Update(const sf::Time& elapsedTime);
 	void Draw();
 	void Render();
+	
+	std::vector<Bullet>bullets;
 
 private:	
 	void Input();
@@ -32,9 +34,8 @@ private:
 	sf::Texture bullet_text;
 	sf::Texture background_text;
 	sf::Texture bar_text;
-
+	sf::Clock bulletTimer;
 	Player player;
-	Bullet bullet;
 	Level level;
 };
 

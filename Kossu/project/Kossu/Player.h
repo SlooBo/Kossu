@@ -17,8 +17,8 @@ public:
 
 	void Draw(sf::RenderWindow& window);
 	void Update(const sf::Time& elapsedTime);
-	void shoot();
-	void bulletShoot();
+	//void shoot();
+	//void bulletShoot();
 	void setTexture(sf::Texture& texture);
 	void rotateLeft();
 	void rotateRight();
@@ -26,15 +26,14 @@ public:
 	void takeDamage(int value);
 	void Camera(sf::View& view1);	
 	bool isAlive;
-
-	Bullet bullet;
+		
+	float rangle;
+	float x, y;	
 
 private:
 	sf::Vector2f velocity;
-	sf::Clock bulletTimer;
+	//sf::Clock bulletTimer;
 	int health;
-	float rangle;
-	float x, y;	
 
 	void updatePosition(const sf::Time& elapsedTime);
 };
