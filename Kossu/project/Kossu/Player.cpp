@@ -1,16 +1,5 @@
 #include "Player.h"
-
-static const float speed = 5.0f;
-static const int maxHp = 100;
-static const int minY = -100;
-static const int maxY = 100;
-static const int minX = -100;
-static const int maxX = 100;
-static const int bulletCD = 0.2f;
-static const sf::Vector2f gravity(0,30);
-static const sf::IntRect texture_rect(0,0,256,256);
-static const sf::Vector2f texture_origin(texture_rect.width * 0.5f, texture_rect.height * 0.5f);
-
+#include "Global.h"
 
 Player::Player(void)
 {
@@ -102,22 +91,22 @@ void Player::updatePosition(const sf::Time& elapsedTime)
 	//MOVEMENT BOUNDS
 	if(position.x < 0)
 	{
-		position.x = 0;
+		velocity.x = -velocity.x;
 	}	
 	
 	if(position.x > 2048)
 	{
-		position.x = 2048;
+		velocity.x = -velocity.x;
 	}
 
 	if(position.y < 0)
 	{
-		position.y = 0;
+		velocity.y = -velocity.y;
 	}	
 	
 	if(position.y > 2048)
 	{
-		position.y = 2048;
+		velocity.y = -velocity.y;
 	}
 
 	//MOVEMENT

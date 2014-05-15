@@ -1,8 +1,8 @@
 #include "GameHandler.h"
+#include "Global.h"
 
 const sf::Vector2f startPosition(100,100);
 const sf::Vector2f startPosition2(105,105);
-const float bulletCD = 0.2f;
 
 GameHandler::GameHandler(sf::RenderWindow& window)	: bounds(window.getViewport(window.getView())), window(window)
 {
@@ -66,8 +66,17 @@ void GameHandler::Input()
 	{
 		if(bulletTimer.getElapsedTime().asSeconds() > bulletCD)
 		{
-			bulletTimer.restart();			
-			bullets.push_back(Bullet(player.Position(),player.rangle));
+ 			bulletTimer.restart();	
+			sf::Vector2f bulletPosition = player.Position();
+
+			sf::Vector2f bulletDirection;
+
+			bulletDirection.x = -cos((90 + player.rangle) * PI / 180); 
+			bulletDirection.y = -sin((90 + player.rangle) * PI / 180);
+
+			bulletPosition += bulletDirection * 35.f;
+
+			bullets.push_back(Bullet(bulletPosition,player.rangle));
 		}
 	}
 
@@ -120,6 +129,11 @@ void GameHandler::updatePlayer(const sf::Time& elapsedTime)
 	player2.Update(elapsedTime);
 }
 
+float vectorLenght(sf::Vector2f vec)   //TODO: VERY BAD HACK OF LEAVING THIS HERE.
+{
+	return sqrt( vec.x * vec.x + vec.y * vec.y );
+}
+
 void GameHandler::updateBullets(const sf::Time& elapsedTime)
 {
 	for(unsigned i = 0; i < bullets.size(); i++)
@@ -127,17 +141,28 @@ void GameHandler::updateBullets(const sf::Time& elapsedTime)
 		bullets[i].SetTexture(bullet_text);
 		bullets[i].Update(elapsedTime);
 
+		if( vectorLenght(bullets[i].Position() - player2.Position()) < 50)
+		{
+			printf(" OSSUUUUU KAKKOSEEN");
+		}
+
 		if(bullets[i].Position().x > 2048 || bullets[i].Position().y > 2048
 			|| bullets[i].Position().x < 0 || bullets[i].Position().y < 0)
 		{
 			bullets.erase(bullets.begin());
 		}
+
 	}
 
 	for(unsigned i = 0; i < bullets2.size(); i++)
 	{
 		bullets2[i].SetTexture(bullet_text);
 		bullets2[i].Update(elapsedTime);
+
+		if( vectorLenght(bullets2[i].Position() - player.Position()) < 50)
+		{
+			printf(" OSSUUUUU YKKÖSEEE");
+		}
 
 		if(bullets2[i].Position().x > 2048 || bullets2[i].Position().y > 2048
 			|| bullets2[i].Position().x < 0 || bullets2[i].Position().y < 0)

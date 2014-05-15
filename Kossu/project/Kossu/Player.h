@@ -30,6 +30,9 @@ public:
 	float rangle;
 	float x, y;	
 
+	
+	const sf::Vector2f &getVelocity() const { return velocity; }
+
 private:
 	sf::Vector2f velocity;
 	//sf::Clock bulletTimer;

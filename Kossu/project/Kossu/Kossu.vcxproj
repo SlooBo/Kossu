@@ -100,6 +100,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameHandler.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Global.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Mainmenu.h" />

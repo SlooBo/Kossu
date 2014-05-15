@@ -28,6 +28,7 @@ public:
 	void setRotation(const int value);
 
 
+
 protected:
 	sf::Sprite sprite;
 	sf::Vector2f position;
