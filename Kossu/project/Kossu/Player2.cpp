@@ -1,4 +1,4 @@
-#include "Player.h"
+#include "Player2.h"
 
 static const float speed = 5.0f;
 static const int maxHp = 100;
@@ -12,7 +12,7 @@ static const sf::IntRect texture_rect(0,0,256,256);
 static const sf::Vector2f texture_origin(texture_rect.width * 0.5f, texture_rect.height * 0.5f);
 
 
-Player::Player(void)
+Player2::Player2(void)
 {
 	rangle = 0;
 	x = 0;
@@ -20,11 +20,11 @@ Player::Player(void)
 }
 
 
-Player::~Player(void)
+Player2::~Player2(void)
 {
 }
 
-void Player::rotateLeft()
+void Player2::rotateLeft()
 {
 	rangle -= 2;
 
@@ -39,7 +39,7 @@ void Player::rotateLeft()
 	}
 }
 
-void Player::rotateRight()
+void Player2::rotateRight()
 {
 	rangle += 2;
 
@@ -54,7 +54,7 @@ void Player::rotateRight()
 	}
 }
 
-void Player::forward()
+void Player2::forward()
 {	
 	x = -cos((90 + rangle) * PI / 180); 
 	y = -sin((90 + rangle) * PI / 180);
@@ -63,7 +63,7 @@ void Player::forward()
 	velocity.y += y;
 }
 
-void Player::takeDamage(int value)
+void Player2::takeDamage(int value)
 {
 	health -= value;
 
@@ -74,19 +74,19 @@ void Player::takeDamage(int value)
 	}
 }
 
-void Player::Draw(sf::RenderWindow& window)
+void Player2::Draw(sf::RenderWindow& window)
 {
 	window.draw(sprite);
 
 	//GameObject::Draw(window);
 }
 
-void Player::Update(const sf::Time& elapsedTime)
+void Player2::Update(const sf::Time& elapsedTime)
 {
 	updatePosition(elapsedTime);
 }
 
-void Player::updatePosition(const sf::Time& elapsedTime)
+void Player2::updatePosition(const sf::Time& elapsedTime)
 {	
 	//VELOCITY CONTROL
 	if(velocity.y < maxY)
@@ -127,14 +127,15 @@ void Player::updatePosition(const sf::Time& elapsedTime)
 	sprite.setPosition(position);
 }
 
-void Player::Camera(sf::View& view1)
+void Player2::Camera(sf::View& view1)
 {
 	view1.move(position.x - 400,position.y - 300);
 }
 
 
-void Player::setTexture(sf::Texture& texture)
+void Player2::setTexture(sf::Texture& texture)
 {	
+
 	GameObject::SetTexture(texture);
 	
 	sprite.setTextureRect(texture_rect);

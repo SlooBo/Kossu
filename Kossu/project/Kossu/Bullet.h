@@ -2,8 +2,6 @@
 
 #include "gameobject.h"
 
-#include <list>
-
 class Bullet :	public GameObject
 {
 public:

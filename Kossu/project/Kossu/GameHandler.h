@@ -6,6 +6,7 @@
 
 #include "Input.h"
 #include "Player.h"
+#include "Player2.h"
 #include "Render.h"
 #include "Bullet.h"
 #include "Level.h"
@@ -21,6 +22,7 @@ public:
 	void Render();
 	
 	std::vector<Bullet>bullets;
+	std::vector<Bullet>bullets2;
 
 private:	
 	void Input();
@@ -36,6 +38,7 @@ private:
 	sf::Texture bar_text;
 	sf::Clock bulletTimer;
 	Player player;
+	Player2 player2;
 	Level level;
 };
 

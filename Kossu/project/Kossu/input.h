@@ -4,7 +4,6 @@
 #include <SFML\Window.hpp>
 
 #include "GameObject.h"
-#include "Player.h"
 
 #include <iostream>
 
@@ -19,6 +18,11 @@ public:
 	static bool keyboard_W();
 	static bool keyboard_A();
 	static bool keyboard_D();
+
+	static bool keyboard_RCTR();
+	static bool keyboard_UP();
+	static bool keyboard_LEFT();
+	static bool keyboard_RIGHT();
 
 private:
 	Input(void);
