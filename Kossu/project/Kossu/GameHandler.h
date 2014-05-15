@@ -37,6 +37,7 @@ private:
 	sf::Texture background_text;
 	sf::Texture bar_text;
 	sf::Clock bulletTimer;
+	sf::Clock bulletTimer2;
 	Player player;
 	Player2 player2;
 	Level level;

@@ -38,6 +38,11 @@ void GameHandler::Draw()
 		bullets[i].Draw(window);
 	}	
 
+	for(unsigned i = 0; i < bullets2.size(); i++)
+	{
+		bullets2[i].Draw(window);
+	}	
+	
 	player.Draw(window);
 	player2.Draw(window);
 
@@ -98,10 +103,19 @@ void GameHandler::Input()
 
 	if(Input::keyboard_RCTR())
 	{
-		if(bulletTimer.getElapsedTime().asSeconds() > bulletCD)
+		if(bulletTimer2.getElapsedTime().asSeconds() > bulletCD)
 		{
-			bulletTimer.restart();			
-			bullets2.push_back(Bullet(player2.Position(),player2.rangle));
+ 			bulletTimer2.restart();	
+			sf::Vector2f bulletPosition = player2.Position();
+
+			sf::Vector2f bulletDirection;
+
+			bulletDirection.x = -cos((90 + player2.rangle) * PI / 180); 
+			bulletDirection.y = -sin((90 + player2.rangle) * PI / 180);
+
+			bulletPosition += bulletDirection * 35.f;
+
+			bullets2.push_back(Bullet(bulletPosition,player2.rangle));
 		}
 	}
 }
@@ -143,13 +157,16 @@ void GameHandler::updateBullets(const sf::Time& elapsedTime)
 
 		if( vectorLenght(bullets[i].Position() - player2.Position()) < 50)
 		{
-			printf(" OSSUUUUU KAKKOSEEN");
+			player2.takeDamage(10);
+			bullets.erase(bullets.begin());
+			return;
 		}
 
 		if(bullets[i].Position().x > 2048 || bullets[i].Position().y > 2048
 			|| bullets[i].Position().x < 0 || bullets[i].Position().y < 0)
 		{
 			bullets.erase(bullets.begin());
+			return;
 		}
 
 	}
@@ -161,13 +178,16 @@ void GameHandler::updateBullets(const sf::Time& elapsedTime)
 
 		if( vectorLenght(bullets2[i].Position() - player.Position()) < 50)
 		{
-			printf(" OSSUUUUU YKKÖSEEE");
+			player.takeDamage(10);
+			bullets2.erase(bullets2.begin());
+			return;
 		}
 
 		if(bullets2[i].Position().x > 2048 || bullets2[i].Position().y > 2048
 			|| bullets2[i].Position().x < 0 || bullets2[i].Position().y < 0)
 		{
 			bullets2.erase(bullets2.begin());
+			return;
 		}
 	}
 }

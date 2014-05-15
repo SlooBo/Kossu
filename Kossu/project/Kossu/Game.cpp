@@ -4,7 +4,7 @@ static void update(sf::RenderWindow& window, GameHandler& gamehandler);
 
 Game::Game(void)
 {
-	sf::VideoMode videomode(800,600);
+	sf::VideoMode videomode(1240,800);
 	sf::RenderWindow window(videomode, "K0SSU");
 	window.setFramerateLimit(60);
 

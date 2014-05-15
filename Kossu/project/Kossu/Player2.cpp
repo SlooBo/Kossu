@@ -6,6 +6,7 @@ Player2::Player2(void)
 	rangle = 0;
 	x = 0;
 	y = 0;
+	health = 200;
 }
 
 
